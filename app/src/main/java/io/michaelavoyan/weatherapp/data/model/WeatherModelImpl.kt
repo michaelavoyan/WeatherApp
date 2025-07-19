@@ -11,6 +11,7 @@ import io.michaelavoyan.weatherapp.domain.model.WeatherModel
 
 class WeatherModelImpl(
     override val temperature: Double,
+    override val feelsLike: Double,
     override val description: String,
     override val humidity: Int,
     override val pressure: Int,

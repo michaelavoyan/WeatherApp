@@ -12,7 +12,6 @@ data class WeatherResponse(
     val weather: List<Weather>,
     val main: Main,
     val wind: Wind,
-    val coord: Coord,
 )
 
 @Serializable
@@ -27,8 +26,6 @@ data class Weather(
 data class Main(
     val temp: Double,
     val feels_like: Double,
-    val temp_min: Double,
-    val temp_max: Double,
     val pressure: Int,
     val humidity: Int,
 )
@@ -36,10 +33,4 @@ data class Main(
 @Serializable
 data class Wind(
     val speed: Double,
-)
-
-@Serializable
-data class Coord(
-    val lon: Double,
-    val lat: Double,
 )

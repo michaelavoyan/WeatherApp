@@ -48,6 +48,7 @@ fun WeatherScreen(
         val items =
             listOf(
                 "Temperature" to "${data.temperature} °C",
+                "Feels Like" to "${data.feelsLike} °C",
                 "Description" to data.description,
                 "Humidity" to "${data.humidity}%",
                 "Pressure" to "${data.pressure} hPa",
