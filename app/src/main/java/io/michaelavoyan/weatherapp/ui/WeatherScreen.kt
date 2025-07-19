@@ -37,7 +37,7 @@ fun WeatherScreen(
                 .padding(16.dp),
     ) {
         Text(
-            text = "Weather",
+            text = "Weather in ${data.name}",
             style = MaterialTheme.typography.titleLarge,
             modifier =
                 Modifier

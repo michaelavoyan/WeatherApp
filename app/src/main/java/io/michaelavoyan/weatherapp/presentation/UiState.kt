@@ -4,18 +4,16 @@
 
 package io.michaelavoyan.weatherapp.presentation
 
-import io.michaelavoyan.weatherapp.domain.model.WeatherModel
+sealed class UiState<out T> {
+    object Idle : UiState<Nothing>()
 
-sealed class UiState {
-    object Idle : UiState()
+    object Loading : UiState<Nothing>()
 
-    object Loading : UiState()
-
-    data class Success(
-        val data: WeatherModel,
-    ) : UiState()
+    data class Success<T>(
+        val data: T,
+    ) : UiState<T>()
 
     data class Error(
         val message: String,
-    ) : UiState()
+    ) : UiState<Nothing>()
 }

@@ -10,6 +10,7 @@ import io.michaelavoyan.weatherapp.domain.model.WeatherModel
 
 fun WeatherResponse.toWeatherInfo(): WeatherModel =
     WeatherModelImpl(
+        name = name,
         temperature = main.temp,
         feelsLike = main.feels_like,
         description = weather.firstOrNull()?.description ?: "N/A",

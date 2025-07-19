@@ -5,6 +5,7 @@
 package io.michaelavoyan.weatherapp.domain.model
 
 interface WeatherModel {
+    val name: String
     val temperature: Double
     val feelsLike: Double
     val description: String
