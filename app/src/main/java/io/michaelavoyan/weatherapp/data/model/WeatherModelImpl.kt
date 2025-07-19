@@ -14,5 +14,5 @@ class WeatherModelImpl(
     override val description: String,
     override val humidity: Int,
     override val pressure: Int,
-    override val windSpeed: Double
+    override val windSpeed: Double,
 ) : WeatherModel

@@ -10,12 +10,12 @@ import io.michaelavoyan.weatherapp.domain.usecase.GetWeatherByCoordinatesUseCase
 import jakarta.inject.Inject
 
 class GetWeatherByCoordinatesUseCaseImpl
-@Inject
-constructor(
-    private val repo: WeatherRepository,
-) : GetWeatherByCoordinatesUseCase {
-    override suspend fun getWeatherByCoordinates(
-        lat: Double,
-        lon: Double,
-    ): WeatherModel = repo.getWeatherByCoordinates(lat, lon)
-}
+    @Inject
+    constructor(
+        private val repo: WeatherRepository,
+    ) : GetWeatherByCoordinatesUseCase {
+        override suspend fun getWeatherByCoordinates(
+            lat: Double,
+            lon: Double,
+        ): WeatherModel = repo.getWeatherByCoordinates(lat, lon)
+    }

@@ -16,45 +16,45 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class WeatherViewModel
-@Inject
-constructor(
-    private val byCityUseCase: GetWeatherByCityUseCase,
-    private val byCoordinatesUseCase: GetWeatherByCoordinatesUseCase,
-) : ViewModel() {
-    private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
-    val uiState: StateFlow<UiState> = _uiState
+    @Inject
+    constructor(
+        private val byCityUseCase: GetWeatherByCityUseCase,
+        private val byCoordinatesUseCase: GetWeatherByCoordinatesUseCase,
+    ) : ViewModel() {
+        private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
+        val uiState: StateFlow<UiState> = _uiState
 
-    fun fetchWeatherByCity(
-        city: String,
-        country: String,
-    ) {
-        viewModelScope.launch {
-            _uiState.value = UiState.Loading
-            try {
-                val result = byCityUseCase.getWeatherByCity(city, country)
-                _uiState.value = UiState.Success(result)
-            } catch (e: Exception) {
-                _uiState.value = UiState.Error(e.message ?: "Unknown error")
+        fun fetchWeatherByCity(
+            city: String,
+            country: String,
+        ) {
+            viewModelScope.launch {
+                _uiState.value = UiState.Loading
+                try {
+                    val result = byCityUseCase.getWeatherByCity(city, country)
+                    _uiState.value = UiState.Success(result)
+                } catch (e: Exception) {
+                    _uiState.value = UiState.Error(e.message ?: "Unknown error")
+                }
             }
         }
-    }
 
-    fun fetchWeatherByCoordinates(
-        lat: Double,
-        lon: Double,
-    ) {
-        viewModelScope.launch {
-            _uiState.value = UiState.Loading
-            try {
-                val result = byCoordinatesUseCase.getWeatherByCoordinates(lat, lon)
-                _uiState.value = UiState.Success(result)
-            } catch (e: Exception) {
-                _uiState.value = UiState.Error(e.message ?: "Unknown error")
+        fun fetchWeatherByCoordinates(
+            lat: Double,
+            lon: Double,
+        ) {
+            viewModelScope.launch {
+                _uiState.value = UiState.Loading
+                try {
+                    val result = byCoordinatesUseCase.getWeatherByCoordinates(lat, lon)
+                    _uiState.value = UiState.Success(result)
+                } catch (e: Exception) {
+                    _uiState.value = UiState.Error(e.message ?: "Unknown error")
+                }
             }
         }
-    }
 
-    fun resetToIdle() {
-        _uiState.value = UiState.Idle
+        fun resetToIdle() {
+            _uiState.value = UiState.Idle
+        }
     }
-}

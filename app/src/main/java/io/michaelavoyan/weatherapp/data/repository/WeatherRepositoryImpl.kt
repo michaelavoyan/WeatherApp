@@ -12,24 +12,24 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class WeatherRepositoryImpl
-@Inject
-constructor(
-    private val api: WeatherApi,
-    @Named("OpenWeatherApiKey") private val apiKey: String,
-) : WeatherRepository {
-    override suspend fun getWeatherByCity(
-        city: String,
-        country: String,
-    ): WeatherModel {
-        val response = api.getWeatherByCity("$city,$country", apiKey)
-        return response.toWeatherInfo()
-    }
+    @Inject
+    constructor(
+        private val api: WeatherApi,
+        @Named("OpenWeatherApiKey") private val apiKey: String,
+    ) : WeatherRepository {
+        override suspend fun getWeatherByCity(
+            city: String,
+            country: String,
+        ): WeatherModel {
+            val response = api.getWeatherByCity("$city,$country", apiKey)
+            return response.toWeatherInfo()
+        }
 
-    override suspend fun getWeatherByCoordinates(
-        lat: Double,
-        lon: Double,
-    ): WeatherModel {
-        val response = api.getWeatherByCoordinates(lat, lon, apiKey)
-        return response.toWeatherInfo()
+        override suspend fun getWeatherByCoordinates(
+            lat: Double,
+            lon: Double,
+        ): WeatherModel {
+            val response = api.getWeatherByCoordinates(lat, lon, apiKey)
+            return response.toWeatherInfo()
+        }
     }
-}
