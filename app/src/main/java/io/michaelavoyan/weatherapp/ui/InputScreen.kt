@@ -96,8 +96,8 @@ fun InputScreen(
             )
             Spacer(Modifier.height(8.dp))
             Button(onClick = {
-//                viewModel.fetchWeatherByCoordinates(lat.toDouble(), lon.toDouble())
-                viewModel.fetchWeatherByCoordinates("40.741895".toDouble(), "-73.989308".toDouble())
+                viewModel.fetchWeatherByCoordinates(lat.toDouble(), lon.toDouble())
+//                viewModel.fetchWeatherByCoordinates("40.741895".toDouble(), "-73.989308".toDouble())
                 onResult()
             }) { Text("Get Weather") }
         }
