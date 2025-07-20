@@ -79,8 +79,8 @@ fun InputScreen(
             )
             Spacer(Modifier.height(8.dp))
             Button(onClick = {
-//                viewModel.fetchWeatherByCity(city, country)
-                viewModel.fetchWeatherByCity("Tel-Aviv", "Israel")
+                viewModel.fetchWeatherByCity(city, country)
+//                viewModel.fetchWeatherByCity("Tel-Aviv", "Israel")
                 onResult()
             }) { Text("Get Weather") }
         } else {
